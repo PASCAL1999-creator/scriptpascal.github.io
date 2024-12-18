@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/imgs/inaya_pfp.gif">
+    
+    <title>Contact • Pascal Koster</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-circle"></div>
+        <p class="loader-text">Laden...</p>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button id="share-button" class="share-button-nav">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Delen</span>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="script-info.html">Script Info</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle-nav">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="contact-section">
+            <h1>Contact</h1>
+            <p class="contact-intro">Heb je een vraag? Neem gerust contact met me op!</p>
+            
+            <div class="contact-card">
+                <div class="contact-header">
+                    <i class="fas fa-envelope"></i>
+                    <h2>Stuur een bericht</h2>
+                </div>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" placeholder="Jouw naam" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="jouw@email.nl" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Onderwerp</label>
+                        <input type="text" id="subject" name="subject" placeholder="Waar gaat je bericht over?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Bericht</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Schrijf je bericht hier..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Verstuur Bericht
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="copyright">
+        <p>&copy; 2024 Pascal Koster • Developer bij Script Groningen</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/imgs/inaya_pfp.gif">
+    
+    <title>Pascal Koster • Portfolio</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/review.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/language.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-circle"></div>
+        <p class="loader-text">Laden...</p>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button id="share-button" class="share-button-nav">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Delen</span>
+                </button>
+                <button id="language-toggle" class="language-toggle-nav">
+                    <i class="fas fa-globe"></i>
+                    <span class="current-lang">NL</span>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="script-info.html">Script Info</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle-nav">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="share-tooltip" class="share-tooltip">
+        <p>Link gekopieerd!</p>
+    </div>
+
+    <div class="welcome-screen">
+        <div class="welcome-text">Welkom bij mijn Portfolio</div>
+    </div>
+
+    <div class="container">
+        <div class="profile-card">
+            <img src="assets/imgs/kaneki_pfp.gif" alt="Pascal Koster" class="profile-img">
+            <h1>Pascal Koster</h1>
+            <p class="title">Frontend Developer & Grafisch Ontwerper</p>
+            <div class="social-links">
+                <a href="https://github.com/PASCAL1999-creator" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/pascal-koster-2016b9a2/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://codepen.io/Pascal-Koster" target="_blank"><i class="fab fa-codepen"></i></a>
+                <a href="https://script.nl" target="_blank"><i class="fas fa-globe"></i></a>
+            </div>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-card html">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+                <p>Semantische en toegankelijke websites bouwen</p>
+            </div>
+            <div class="skill-card css">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+                <p>Responsive en moderne styling</p>
+            </div>
+            <div class="skill-card js">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>Interactieve web applicaties</p>
+            </div>
+            <div class="skill-card design">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Design</h3>
+                <p>Creatief grafisch ontwerp</p>
+            </div>
+        </div>
+
+        <div class="work-experience">
+            <h2>Werkervaring</h2>
+            <div class="work-card">
+                <img src="assets/imgs/SCR001_Logo_Blauw 1x1.png" alt="Script Logo" class="company-logo">
+                <div class="work-info">
+                    <h3>Frontend Developer</h3>
+                    <p class="company-name">
+                        <a href="https://script.nl/" target="_blank">
+                            <i class="fas fa-building"></i> Script
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </p>
+                    <p class="work-location"><i class="fas fa-map-marker-alt"></i> Groningen</p>
+                    <p class="work-description">
+                        Als Frontend Developer bij Script werk ik aan het ontwikkelen van moderne, 
+                        gebruiksvriendelijke websites en webapplicaties.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="programming-styles">
+            <h2>Code Stijlen</h2>
+            <div class="code-examples">
+                <div class="code-card">
+                    <div class="code-header">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML</span>
+                    </div>
+                    <pre><code class="language-html">
+&lt;div class="container"&gt;
+    &lt;h1&gt;Welkom&lt;/h1&gt;
+    &lt;p&gt;Dit is een voorbeeld&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="code-card">
+                    <div class="code-header">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS</span>
+                    </div>
+                    <pre><code class="language-css">
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}</code></pre>
+                </div>
+
+                <div class="code-card">
+                    <div class="code-header">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <pre><code class="language-javascript">
+function greet(name) {
+    return `Hallo ${name}!`;
+}
+
+const result = greet('Pascal');</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-container">
+            <button id="review-btn" class="review-btn">
+                <i class="fas fa-star"></i> Beoordeel deze Website
+            </button>
+        </div>
+    </div>
+
+    <footer style="background-color: #1a1a2e; color: white; text-align: center; padding: 20px; margin-top: 40px; border-top: 2px solid #e94560;">
+        <p>Deze website is gemaakt in opdracht van Script Groningen</p>
+        <p style="font-size: 14px; margin-top: 10px;">© 2024 Script Groningen - Alle rechten voorbehouden</p>
+    </footer>
+</body>
+</html>

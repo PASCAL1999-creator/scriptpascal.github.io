@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/imgs/inaya_pfp.gif">
+    
+    <title>Games • Pascal Koster</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/quiz.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/bubble-shooter.js" defer></script>
+    <script src="assets/js/sokoban.js" defer></script>
+    <script src="assets/js/snake.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('bubbleShooterCanvas');
+            new BubbleShooter(canvas);
+            const sokobanCanvas = document.getElementById('sokobanCanvas');
+            new Sokoban(sokobanCanvas);
+            const snakeCanvas = document.getElementById('snakeCanvas');
+            new SnakeGame(snakeCanvas);
+
+            const menuButtons = document.querySelectorAll('.game-menu-button');
+            const gameCards = document.querySelectorAll('.game-card');
+
+            function showGame(gameType) {
+                gameCards.forEach(card => {
+                    if (card.dataset.game === gameType) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            menuButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    menuButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    showGame(button.dataset.game);
+                });
+            });
+
+            showGame('quiz');
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-circle"></div>
+        <p class="loader-text">Laden...</p>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button id="share-button" class="share-button-nav">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Delen</span>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html" class="active">Games</a></li>
+                <li><a href="script-info.html">Script Info</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle-nav">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="games-section">
+            <h1>Games</h1>
+            <p class="games-intro">Ontdek onze collectie interactieve games en test je vaardigheden!</p>
+            
+            <!-- Game Menu Navigation -->
+            <div class="game-menu-nav">
+                <button class="game-menu-button active" data-game="quiz">
+                    <i class="fas fa-gamepad"></i>
+                    Quiz
+                </button>
+                <button class="game-menu-button" data-game="bubble-shooter">
+                    <i class="fas fa-bullseye"></i>
+                    Bubble Shooter
+                </button>
+                <button class="game-menu-button" data-game="sokoban">
+                    <i class="fas fa-box"></i>
+                    Sokoban
+                </button>
+                <button class="game-menu-button" data-game="snake">
+                    <i class="fas fa-snake"></i>
+                    Snake
+                </button>
+            </div>
+
+            <div class="games-grid">
+                <!-- Game cards blijven hetzelfde, maar krijgen data-game attributen -->
+                <div class="game-card" data-game="quiz">
+                    <div class="game-card-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h2>Groninger Kennis Quiz</h2>
+                    </div>
+                    <p class="game-description">
+                        Test jouw kennis over de mooiste stad van het Noorden! Kies een categorie en begin met spelen.
+                    </p>
+                    
+                    <!-- Quiz categorieën -->
+                    <div class="quiz-categories">
+                        <button class="category-btn active" data-category="cultuur">
+                            <i class="fas fa-theater-masks"></i>
+                            Cultuur
+                        </button>
+                        <button class="category-btn" data-category="geschiedenis">
+                            <i class="fas fa-landmark"></i>
+                            Geschiedenis
+                        </button>
+                        <button class="category-btn" data-category="dialect">
+                            <i class="fas fa-comments"></i>
+                            Gronings Dialect
+                        </button>
+                        <button class="category-btn" data-category="eten">
+                            <i class="fas fa-utensils"></i>
+                            Eten & Drinken
+                        </button>
+                        <button class="category-btn" data-category="bekenden">
+                            <i class="fas fa-users"></i>
+                            Bekende Groningers
+                        </button>
+                    </div>
+
+                    <!-- Quiz container -->
+                    <div class="quiz-container">
+                        <div id="quiz">
+                            <div class="quiz-question">
+                                <p id="question"></p>
+                                <div class="quiz-options" id="options"></div>
+                            </div>
+                            <div class="quiz-buttons">
+                                <button id="submit-btn">Controleer Antwoord</button>
+                                <button id="shuffle-btn">Andere Vragen</button>
+                            </div>
+                            <p id="result"></p>
+                            <p id="score"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-game="bubble-shooter">
+                    <div class="bubble-shooter-container">
+                        <div class="bubble-shooter-header">
+                            <h2>Bubble Shooter</h2>
+                            <p>Schiet de bubbels kapot en behaal de hoogste score! Richt met je muis en klik om te schieten.</p>
+                        </div>
+                        <div class="game-canvas-container">
+                            <div class="score-display">
+                                <span>Score: <span id="bubble-score">0</span></span>
+                            </div>
+                            <div class="bubble-shooter-start-screen" id="bubbleShooterStartScreen">
+                                <div class="start-content">
+                                    <h3>Bubble Shooter</h3>
+                                    <p>Vernietig zoveel mogelijk bubbels door groepen van 3 of meer van dezelfde kleur te maken!</p>
+                                    <div class="controls-info">
+                                        <div class="control-item">
+                                            <i class="fas fa-mouse-pointer"></i>
+                                            <span>Beweeg de muis om te richten</span>
+                                        </div>
+                                        <div class="control-item">
+                                            <i class="fas fa-mouse"></i>
+                                            <span>Klik om te schieten</span>
+                                        </div>
+                                    </div>
+                                    <button id="startBubbleShooter" class="start-game-btn">
+                                        <i class="fas fa-play"></i>
+                                        Start Spel
+                                    </button>
+                                </div>
+                            </div>
+                            <canvas id="bubbleShooterCanvas" width="800" height="600"></canvas>
+                            <div class="shooter-base">
+                                <div class="shooter-barrel"></div>
+                            </div>
+                            <div class="game-over-overlay">
+                                <div class="game-over-content">
+                                    <h3>Game Over!</h3>
+                                    <div class="final-score">Score: <span>0</span></div>
+                                    <button class="restart-button">Opnieuw Spelen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card" data-game="sokoban">
+                    <div class="game-card-header">
+                        <i class="fas fa-box"></i>
+                        <h2>Sokoban</h2>
+                    </div>
+                    <p class="game-description">
+                        Een klassiek puzzelspel waarbij je dozen naar hun doelen moet duwen. 
+                        Gebruik de pijltjestoetsen om te bewegen en 'R' om het level te herstarten.
+                    </p>
+                    <div class="game-instructions">
+                        <h3>Speluitleg:</h3>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> Blauwe cirkel is de speler</li>
+                            <li><i class="fas fa-square"></i> Oranje vierkanten zijn dozen</li>
+                            <li><i class="fas fa-dot-circle"></i> Groene cirkels zijn doelen</li>
+                            <li><i class="fas fa-border-all"></i> Donkere vlakken zijn muren</li>
+                        </ul>
+                        <p>Duw alle dozen naar de doelen om het level te voltooien!</p>
+                    </div>
+                    <div class="game-canvas-container">
+                        <canvas id="sokobanCanvas" width="800" height="600"></canvas>
+                    </div>
+                </div>
+
+                <div class="game-card" data-game="snake">
+                    <div class="game-card-header">
+                        <i class="fas fa-snake"></i>
+                        <h2>Snake</h2>
+                    </div>
+                    <p class="game-description">
+                        Het klassieke Snake spel! Bestuur de slang met de pijltjestoetsen en verzamel zoveel mogelijk voedsel.
+                    </p>
+                    <div class="game-instructions">
+                        <h3>Speluitleg:</h3>
+                        <ul>
+                            <li><i class="fas fa-arrow-up"></i> Pijltjestoetsen om te bewegen</li>
+                            <li><i class="fas fa-circle"></i> Verzamel rode voedsel</li>
+                            <li><i class="fas fa-skull"></i> Vermijd de muren en jezelf</li>
+                            <li><i class="fas fa-redo"></i> Enter om opnieuw te starten</li>
+                        </ul>
+                    </div>
+                    <div class="game-canvas-container">
+                        <canvas id="snakeCanvas" width="800" height="600"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="copyright">
+        <p>&copy; 2024 Pascal Koster • Developer bij Script Groningen</p>
+    </footer>
+</body>
+</html> 
